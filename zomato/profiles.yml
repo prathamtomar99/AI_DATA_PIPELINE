@@ -1,0 +1,26 @@
+jaffle_shop:
+  outputs:
+    dev:
+      account: KVNJLNY-LE33353
+      database: ZOMATO
+      password: Swo@12345678910
+      role: ACCOUNTADMIN
+      schema: RAW
+      threads: 16
+      type: snowflake
+      user: PRATHAM9914
+      warehouse: ZOMATO_WH
+  target: dev
+zomato:
+  outputs:
+    dev:
+      account: KVNJLNY-LE33353
+      database: ZOMATO
+      password: Swo@12345678910
+      role: DBT_ROLE
+      schema: STAGING
+      threads: 8
+      type: snowflake
+      user: PRATHAM9914
+      warehouse: ZOMATO_WH
+  target: dev
