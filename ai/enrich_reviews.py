@@ -16,10 +16,6 @@ client = OpenAI(
     base_url="http://localhost:4000" 
 )
 
-SAMPLE_N = 5
-TOPICS = ["food quality", "delivery", "pricing", "service", "packaging", "other"]
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
 SYSTEM_PROMPT = f"""
 You classify customer reviews for a food delivery app.
 
