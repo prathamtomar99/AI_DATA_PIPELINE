@@ -5,10 +5,15 @@ import streamlit as st
 import snowflake.connector
 from openai import OpenAI
 from dotenv import load_dotenv
+from sentence_transformers import SentenceTransformer
 
 load_dotenv()
 
-EMBEDDING_MODEL = "text-embedding-3-small"
+@st.cache_resource
+def get_embedding_model():
+    return SentenceTransformer('all-MiniLM-L6-v2')
+
+EMBEDDING_MODEL = get_embedding_model()
 CHAT_MODEL = "groq-oss120"
 client = OpenAI(
     api_key=os.getenv("LITELLM_MASTER_KEY"),
@@ -40,11 +45,8 @@ def read_reviews_from_snowflake():
     return df
 
 def embed(texts):
-    response = client.embeddings.create(
-        model=EMBEDDING_MODEL,
-        input=texts)
-
-    return [item.embedding for item in response.data]
+    embeddings = EMBEDDING_MODEL.encode(texts)
+    return embeddings.tolist()
     
 @st.cache_data()
 def load_reviews():
