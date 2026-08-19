@@ -37,6 +37,7 @@ env/
 ENV/
 env.bak/
 venv.bak/
+.datapipelineenv
 
 # Environment Variables
 .env
@@ -118,3 +119,4 @@ Thumbs.db
 # Custom
 DataPipelineProject.pptx
 creds
+review_embeddings.parquet
