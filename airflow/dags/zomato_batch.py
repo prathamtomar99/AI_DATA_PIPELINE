@@ -19,7 +19,7 @@ COPY_RAW = [
 
 with DAG(
     dag_id="zomato_batch",
-    start_date=datetime(2024, 1, 1),
+    start_date=datetime(2026, 1, 1),
     schedule="@daily",
     catchup=False,
     tags=["zomato", "dbt", "snowflake"],
